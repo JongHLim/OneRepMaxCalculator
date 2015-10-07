@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         userReps = (EditText)findViewById(R.id.userInputReps);
         displayMax = (TextView)findViewById(R.id.maxDisplay);
         display = (TextView)findViewById(R.id.display);
+        weight = 0;
+        reps = 0;
 
         // call the calculate method
         calculate();
@@ -60,10 +62,21 @@ public class MainActivity extends AppCompatActivity {
                     // not an Integer
                 }
 
-                max = weight + reps;
-                displayMax.setText("" + max);
+                // error checking
+                if (weight >= 1000)
+                    display.setText("Are you sure about that, big guy?");
+                else if (weight == 0 && reps == 0)
+                    display.setText("You lifted nothing???");
+                else if (weight == 0 && reps >= 1)
+                    display.setText("Please input the amount of weight lifted.");
+                else if (weight >= 1 && reps == 0)
+                    display.setText("Please input the number of reps.");
+                else {
+                    max = weight + reps;
+                    display.setText("Your one rep max is...");
+                    displayMax.setText("" + max);
+                }
             }
-
         });
     }
 
@@ -77,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 userWeight.setText("");
                 userReps.setText("");
                 displayMax.setText("");
+                display.setText("");
                 max = 0;
                 weight = 0;
                 reps = 0;
