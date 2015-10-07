@@ -23,11 +23,10 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Enter the reps"
         android:id="@+id/reps"
-        android:layout_marginTop="50dp"
+        android:textSize="30dp"
         android:layout_below="@+id/textView3"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="30dp"/>
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -69,7 +68,34 @@
         android:layout_height="wrap_content"
         android:text="CALCULATE"
         android:id="@+id/calculate"
+        android:layout_below="@+id/userInputReps"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignStart="@+id/textView3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/maxDisplay"
+        android:textSize="30dp"
+        android:layout_below="@+id/display"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RESET"
+        android:id="@+id/resetButton"
         android:layout_below="@+id/reps"
+        android:layout_alignRight="@+id/reps"
+        android:layout_alignEnd="@+id/reps" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your one rep max is..."
+        android:textSize="30dp"
+        android:id="@+id/display"
+        android:layout_below="@+id/calculate"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

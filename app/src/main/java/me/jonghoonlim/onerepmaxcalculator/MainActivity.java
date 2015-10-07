@@ -16,15 +16,29 @@ public class MainActivity extends AppCompatActivity {
     int reps;
     String userWeightString, userRepsString;
     EditText userWeight, userReps;
-    Button calcButton;
+    Button calcButton, resetAll;
+    TextView displayMax, display;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         calcButton = (Button)findViewById(R.id.calculate);
+        resetAll = (Button)findViewById(R.id.resetButton);
         userWeight = (EditText)findViewById(R.id.userInputWeight);
         userReps = (EditText)findViewById(R.id.userInputReps);
+        displayMax = (TextView)findViewById(R.id.maxDisplay);
+        display = (TextView)findViewById(R.id.display);
+
+        // call the calculate method
+        calculate();
+
+        // call the reset method
+        reset();
+    }
+
+    // method to calculate the one rep max
+    public void calculate() {
 
         calcButton.setOnClickListener(new View.OnClickListener() {
 
@@ -34,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 userWeightString = userWeight.getText().toString();
                 try {
                     weight = Integer.parseInt(userWeightString);
-                } catch (NumberFormatException e){
+                } catch (NumberFormatException e) {
                     // not an Integer
                 }
 
@@ -42,14 +56,35 @@ public class MainActivity extends AppCompatActivity {
                 userRepsString = userReps.getText().toString();
                 try {
                     reps = Integer.parseInt(userRepsString);
-                } catch (NumberFormatException e){
+                } catch (NumberFormatException e) {
                     // not an Integer
                 }
 
                 max = weight + reps;
+                displayMax.setText("" + max);
             }
 
         });
+    }
+
+    // set all fields to blank
+    public void reset() {
+
+        resetAll.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                userWeight.setText("");
+                userReps.setText("");
+                displayMax.setText("");
+                max = 0;
+                weight = 0;
+                reps = 0;
+
+            }
+
+        });
+
     }
 
     @Override
