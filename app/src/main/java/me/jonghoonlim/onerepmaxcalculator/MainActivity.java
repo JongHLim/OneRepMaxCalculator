@@ -65,14 +65,17 @@ public class MainActivity extends AppCompatActivity {
                 // error checking
                 if (weight >= 1000 && reps >= 1)
                     display.setText("Are you sure about that, big guy?");
-                else if (weight == 0 && reps == 0)
+                else if ((weight == 0 || userWeightString.equals("")) && (reps == 0 || userRepsString.equals(""))) {
                     display.setText("You lifted nothing???");
-                else if (weight == 0 && reps >= 1)
+                    displayMax.setText("");
+                } else if ((weight == 0 || userWeightString.equals("") && reps >= 1)) {
                     display.setText("Please input the amount of weight lifted.");
-                else if (weight >= 1 && reps == 0)
+                    displayMax.setText("");
+                } else if (weight >= 1 && (reps == 0 || userRepsString.equals(""))) {
                     display.setText("Please input the number of reps.");
-                // compute one rep max
-                else {
+                    displayMax.setText("");
+                    // compute one rep max
+                } else {
                     double temp = 1.0;
                     temp = (temp * weight) / (1.0278- (0.0278 * reps));
                     max = (int) Math.round(temp);
