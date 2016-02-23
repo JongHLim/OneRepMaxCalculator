@@ -85,10 +85,6 @@
             android:layout_width="150dp"
             android:layout_height="30dp"
             android:background="@drawable/calculate"
-            android:shadowColor="#A8A8A8"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5"
             android:layout_marginTop="7dp" />
 
         <Button
@@ -101,10 +97,6 @@
             android:layout_width="150dp"
             android:layout_height="30dp"
             android:background="@drawable/bluebutton"
-            android:shadowColor="#A8A8A8"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5"
             android:layout_marginTop="7dp"
             android:layout_marginLeft="25dp"/>
     </LinearLayout>
